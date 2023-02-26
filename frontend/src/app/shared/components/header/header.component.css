@@ -1,0 +1,17 @@
+.mat-toolbar {
+    background: rgba(197, 183, 183, 0.699);
+    color: #fff;
+}
+
+.navbar {
+    justify-content: space-between;
+}
+
+span {
+    padding-right: 1rem;
+}
+
+.navlink {
+    text-decoration: none;
+    font-size: 1rem;
+}
