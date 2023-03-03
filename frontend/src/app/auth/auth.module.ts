@@ -4,8 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
 import { MaterialModule } from '../material/material.module';
+import { OtpComponent } from './otp/otp.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { SignoutComponent } from './signout/signout.component';
 
 
 
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: '', children: [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'signup', component: SignupComponent }
+    { path: 'admin/login', component: AdminLoginComponent },
+    { path: 'otp', component: OtpComponent },
+    { path: 'logout', component: SignoutComponent }
   ] }
 ]
 
@@ -21,7 +25,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    SignupComponent
+    OtpComponent,
+    AdminLoginComponent,
+    SignoutComponent
   ],
   imports: [
     CommonModule,

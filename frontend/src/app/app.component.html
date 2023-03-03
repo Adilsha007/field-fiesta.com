@@ -1,11 +1,11 @@
-<app-header *ngIf="!(router.url === '/auth/login' || router.url === '/auth/signin')"></app-header>
+<app-header *ngIf="!(router.url === '/auth/login' || router.url === '/auth/otp' || router.url === '/auth/admin/login' || router.url === '/admin/dashboard')"></app-header>
 
 
 
 
 
 
-
+<!-- <div  *ngIf="errorMessage | async as error">{{error}}</div> -->
 
 
 
@@ -13,3 +13,8 @@
 
 
 <router-outlet></router-outlet>
+
+
+
+
+

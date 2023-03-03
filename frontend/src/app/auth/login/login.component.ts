@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Store } from '@ngrx/store/public_api';
+import { Store } from '@ngrx/store';
+import { BehaviorSubject } from 'rxjs';
+import { NotifierService } from 'src/app/services/notifier.service';
 import { AppState } from 'src/app/store/app.state';
-import { signupStart } from '../state/auth.actions';
+import { setErrorMessage } from 'src/app/store/shared/shared.actions';
+import { getErrorMessage } from 'src/app/store/shared/shared.selector';
+import { loginStart, signupStart } from '../state/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -22,9 +26,19 @@ export class LoginComponent {
     phoneno: null,
     password: '',
     repassword: ''
-  } 
+  }  
 
-  constructor(private store:Store<AppState>){}
+  loginUser = {
+    email: '',
+    password: ''
+  }
+
+  constructor(
+    private store:Store<AppState>
+    ){
+
+    }
+
   
   
   tabChanged() {
@@ -47,13 +61,28 @@ validateNumber(value: number){
 }
 
 singnupClick(signupForm: NgForm){
+  
   const username = signupForm.value.username
   const email = signupForm.value.email
   const phoneno = signupForm.value.phoneno
   const password = signupForm.value.password
 
   this.store.dispatch(signupStart({username,email,phoneno,password}))
+
 }
+
+
+loginClicked(loginForm: NgForm){
+
+  const email = loginForm.value.email
+  const password = loginForm.value.password
+
+  this.store.dispatch(loginStart({email,password}))
+
+
+}
+
+
 
 
 }

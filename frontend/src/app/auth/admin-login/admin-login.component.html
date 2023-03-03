@@ -1,0 +1,41 @@
+<div class="login-page">
+
+    <mat-card class="mat-elevation-z12">
+        <mat-card-title style="text-align:center; margin-top: 2rem;"><img
+                src="../../../assets/images/fieldfiestacom-high-resolution-logo-color-on-transparent-background (1).svg"
+                alt="">
+        </mat-card-title>
+        <mat-card-title style="text-align:center; margin-top: 2rem;">
+            <h2 style="color: bisque;">Login to Admin Dashboard</h2>
+        </mat-card-title>
+
+        <mat-card-content>
+            <form #adminForm="ngForm" (ngSubmit)="loginClicked(adminForm)">
+                <mat-form-field>
+                    <input matInput placeholder="Email" required email name="email" [(ngModel)]="loginUser.email">
+                    <mat-error *ngIf="adminForm.controls?.['email']?.touched && adminForm.controls?.['email']?.invalid">A Valid
+                        Email is
+                        required</mat-error>
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Password" type="password" required minlength="6" name="password"
+                        [(ngModel)]="loginUser.password">
+                    <mat-error *ngIf="adminForm.controls?.['password']?.touched">
+                        Min 6 characters long Password is required.
+                    </mat-error>
+                    <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="login-button" [disabled]="!adminForm.valid">
+                    Sign In
+                </button>
+            
+                <button mat-raised-button class="login-button">
+                    Login with Google
+                </button>
+            </form>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

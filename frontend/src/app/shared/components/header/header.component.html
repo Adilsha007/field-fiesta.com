@@ -9,6 +9,37 @@
         <span><a class="navlink" href="">Tournaments</a></span>
         <span><a class="navlink" href="">Categories</a></span>
         <span><a class="navlink" href="">Contact Us</a></span>
-        <span><a class="navlink" [routerLink]="['/auth']">Sign in</a></span>
+        <span *ngIf="!(isAuthenticated | async)" ><button mat-icon-button [matMenuTriggerFor]="notloggedIn" aria-label="Example icon-button with a menu">
+            <mat-icon class="header-icon" matSuffix>account_circle</mat-icon>
+        </button></span>
+        <span  ><button mat-icon-button [matMenuTriggerFor]="loggedIn" aria-label="Example icon-button with a menu">
+            <mat-icon class="header-icon" matSuffix>account_circle</mat-icon>
+        </button></span>
     </div>
 </mat-toolbar>
+
+
+
+<mat-menu #notloggedIn="matMenu">
+    <button mat-menu-item  [routerLink]="['/auth']">
+        <mat-icon>person_add</mat-icon>
+        <span>Register</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/auth']" >
+        <mat-icon>person_4</mat-icon>
+        <span>Login</span>
+    </button>
+</mat-menu>
+
+
+<mat-menu #loggedIn="matMenu">
+    <button mat-menu-item>
+        <mat-icon>manage_accounts</mat-icon>
+        <span>Account</span>
+    </button>
+    <button mat-menu-item (click)="openDialog()" >
+        <mat-icon>logout</mat-icon>
+        <span>Signout</span>
+    </button>
+</mat-menu>
+

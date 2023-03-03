@@ -1,0 +1,31 @@
+<div class="login-page">
+
+<mat-card class="mat-elevation-z12">
+    <mat-card-title style="text-align:center; margin-top: 2rem;"><img
+            src="../../../assets/images/fieldfiestacom-high-resolution-logo-color-on-transparent-background (1).svg"
+            alt="">
+    </mat-card-title>
+    <mat-card-title style="text-align:center; margin-top: 2rem;">
+        <h2 style="color: bisque;" >Enter Verification Code</h2>
+    </mat-card-title>
+
+    <mat-card-content>
+        <form #otpForm="ngForm" 
+        (ngSubmit)="otpSubmited(otpForm)"
+        >
+            <mat-form-field>
+                <input matInput placeholder="One Time Password" required type="text" minlength="4" name="otp" [(ngModel)]="otp">
+                <mat-error *ngIf="otpForm.controls?.['otp']?.touched && otpForm.controls?.['otp']?.invalid"> 
+                    A 4 digit OTP is required</mat-error>
+                <mat-icon matSuffix>password</mat-icon>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit" class="login-button"
+            [disabled]="!otpForm.valid" >
+                Verify
+            </button>
+        </form>
+    </mat-card-content>
+
+</mat-card>
+
+</div>

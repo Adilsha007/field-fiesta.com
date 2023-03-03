@@ -7,6 +7,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu'
+import { MatDialogModule } from '@angular/material/dialog'
 
 
 
@@ -19,7 +22,10 @@ const materialComponents = [
   MatInputModule,
   MatButtonModule,
   MatCheckboxModule,
-  MatIconModule
+  MatIconModule,
+  MatSnackBarModule,
+  MatMenuModule,
+  MatDialogModule
 ]
 
 
